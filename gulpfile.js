@@ -15,6 +15,7 @@ var uglify = require('gulp-uglify');
 var imagemin = require('gulp-imagemin');
 var autoprefixer = require('autoprefixer');
 var postcss = require('gulp-postcss');
+var del = require('del');
 
 var server;
 var options = minimist(process.argv);
@@ -71,6 +72,12 @@ gulp.task('scripts', function(){
 	.pipe(environment === 'production' ? uglify() : gutil.noop())
 	.pipe(gulp.dest('dist/scripts'))
 	.pipe(reload());
+});
+
+// Clean out dist directory prior to new build
+// May be automated in build task in gulp 4 with gulp.series
+gulp.task('clean', function(){
+	del('dist/**/*')
 });
 
 gulp.task('server', function(){
