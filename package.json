@@ -1,14 +1,13 @@
 {
-  "name": "elinemaria",
-  "version": "2.0.0",
-  "description": "Nettsted for sangeren Eline Maria Refvem",
+  "name": "single-page",
+  "version": "1.0.0",
+  "description": "Boilerplate for single-page site",
   "repository": {
     "type": "git",
     "url": ""
   },
   "author": "Øyvind Høie",
   "license": "MIT",
-  "homepage": "http://elinemaria.no",
   "devDependencies": {
     "autoprefixer": "^5.2.0",
     "browser-sync": "^2.8.0",

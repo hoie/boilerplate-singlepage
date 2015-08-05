@@ -49,7 +49,9 @@ gulp.task('sass', function(){
 	return gulp
 	.src('scss/styles.scss')
 	.pipe(environment === 'development' ? sourcemaps.init() : gutil.noop())
-	.pipe(sass()).on('error', handleError)
+	.pipe(sass({
+		includePaths:['scss/vendor/', 'node_modules/bootstrap-sass/assets/stylesheets/']
+	})).on('error', handleError)
 	//// Sourcecomments i stedet for sourcemap. Fjern linjen med sourcemaps.init...
 	// .pipe(sass({
 	// 	sourceComments: environment === 'development' ? 'map' : false
@@ -92,7 +94,7 @@ gulp.task('watch', function(){
 	gulp.watch('*.html', ['html']);
 	gulp.watch('assets/**/*', ['assets']);
 	gulp.watch('img/**/*[jpg,png]', ['images']);
-	gulp.watch('scss/styles.scss', ['sass']);
+	gulp.watch('scss/**/*.scss', ['sass']);
 	gulp.watch('scripts/main.js', ['scripts']);
 });
 
